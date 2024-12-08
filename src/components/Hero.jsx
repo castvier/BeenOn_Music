@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
+import bgImage from '../assets/hero-bg.png';
 
 const HeroSection = styled.div`
   height: 100vh;
@@ -12,7 +13,6 @@ const HeroSection = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #2E2E2E;
   padding: 0 20px;
 `;
 
@@ -22,7 +22,8 @@ const BackgroundImage = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://i.ibb.co/hyp9m8T/hero-bg.png');
+  z-index: 1;
+  background-image: url(${bgImage});
   background-size: cover;
   background-position: center;
   &::after {
@@ -37,14 +38,14 @@ const BackgroundImage = styled.div`
 `;
 
 const Content = styled(motion.div)`
+  position: relative;
+  z-index: 3;
   text-align: center;
   color: white;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  position: relative;
 `;
 
 const Title = styled(motion.h1)`
@@ -57,7 +58,6 @@ const Title = styled(motion.h1)`
     0 0 10px rgba(0,0,0,0.8),
     0 0 20px rgba(0,0,0,0.5),
     0 0 30px rgba(0,0,0,0.3);
-  z-index: 2;
 
   @media (max-width: 768px) {
     font-size: 3rem;
@@ -67,7 +67,7 @@ const Title = styled(motion.h1)`
 const Subtitle = styled(motion.p)`
   font-size: 2rem;
   margin: 1rem 0;
-  color: ${theme.colors.accent};
+  color: ${theme.colors.text};
   text-shadow: 
     0 0 10px rgba(0,0,0,0.8),
     0 0 20px rgba(0,0,0,0.5),
@@ -75,7 +75,6 @@ const Subtitle = styled(motion.p)`
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   letter-spacing: 2px;
-  z-index: 2;
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
@@ -89,7 +88,7 @@ const Hero = () => {
       <Content
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.8 }}
       >
         <Title
           initial={{ opacity: 0, y: 30 }}

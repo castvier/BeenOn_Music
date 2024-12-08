@@ -19,9 +19,9 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-family: 'Inter', sans-serif;
-    background: ${props => props.theme.colors.background};
+    background-color: #121212;
     color: ${props => props.theme.colors.text};
-    line-height: 1.6;
+    min-height: 100vh;
     overflow-x: hidden;
   }
 

@@ -8,7 +8,7 @@ import { theme } from '../styles/theme';
 
 const HomeContainer = styled.div`
   min-height: 100vh;
-  background: ${theme.colors.background};
+  background: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
