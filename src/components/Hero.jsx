@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
-import bgImage from '../assets/hero-bg.png?url';
+import bgImage from '../assets/hero-bg.png';
 
 const HeroSection = styled.div`
   height: 100vh;
@@ -16,14 +16,17 @@ const HeroSection = styled.div`
   padding: 0 20px;
 `;
 
-const BackgroundImage = styled.div`
+const BackgroundImage = styled.div.attrs(props => ({
+  style: {
+    backgroundImage: `url(${new URL('../assets/hero-bg.png', import.meta.url).href})`
+  }
+}))`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-image: url(${props => props.bgImage});
   background-size: cover;
   background-position: center;
   &::after {
@@ -84,7 +87,7 @@ const Subtitle = styled(motion.p)`
 const Hero = () => {
   return (
     <HeroSection>
-      <BackgroundImage bgImage={bgImage} />
+      <BackgroundImage />
       <Content
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
