@@ -6,10 +6,11 @@ export default defineConfig({
   plugins: [react()],
   base: '/BeenOn_Music/',
   build: {
-    assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
+    outDir: 'dist',
+    assetsDir: 'assets',
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name].[ext]'
+        manualChunks: undefined
       }
     }
   }
