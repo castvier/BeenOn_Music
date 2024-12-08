@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { theme } from '../styles/theme';
+import heroBackground from '../assets/hero-bg.png';
 
 const HeroSection = styled.div`
   height: 100vh;
@@ -22,9 +23,11 @@ const BackgroundImage = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/assets/hero-bg.png');
+  background-image: url(${heroBackground});
   background-size: cover;
   background-position: center;
+  opacity: 0.5;
+  z-index: 1;
   &::after {
     content: '';
     position: absolute;
