@@ -10,7 +10,12 @@ export default defineConfig({
     assetsDir: 'assets',
     rollupOptions: {
       output: {
-        manualChunks: undefined
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name.endsWith('.png')) {
+            return 'assets/[name][extname]';
+          }
+          return 'assets/[hash][extname]';
+        }
       }
     }
   }
