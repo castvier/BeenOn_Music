@@ -23,7 +23,7 @@ const BackgroundImage = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(${heroBackground});
+  background-image: url(${heroBackground}), url('/assets/hero-bg.png');
   background-size: cover;
   background-position: center;
   opacity: 0.5;
