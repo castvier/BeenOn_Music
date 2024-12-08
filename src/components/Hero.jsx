@@ -15,15 +15,25 @@ const HeroSection = styled.div`
   padding: 0 20px;
 `;
 
-const BackgroundImage = styled.img`
+const BackgroundImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
-  object-fit: cover;
-  opacity: 0.6;
+  background-image: url('assets/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
 `;
 
 const Content = styled(motion.div)`
@@ -73,7 +83,7 @@ const Subtitle = styled(motion.p)`
 const Hero = () => {
   return (
     <HeroSection>
-      <BackgroundImage src="/BeenOn_Music/hero-bg.png" alt="Background" />
+      <BackgroundImage />
       <Content
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
