@@ -5,9 +5,12 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/BeenOn_Music/',
-  publicDir: 'public',
   build: {
-    assetsDir: 'assets',
-    copyPublicDir: true,
+    assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name].[ext]'
+      }
+    }
   }
 })
